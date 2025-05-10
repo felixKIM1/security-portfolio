@@ -1,1 +1,17 @@
-
+---
+AAAA:
+  acl-AAAA_N:
+  - 도메인 or IP:Port
+  - 도메인 or IP:Port,Port
+  acl-AAAA_BH_N:
+  - 도메인 or IP:Port
+  - 도메인 or IP:Port,Port
+---
+BBBB:
+  acl-BBBB_N:
+  - 도메인 or IP:Port
+  - 도메인 or IP:Port,Port
+  acl-BBBB_BH_N:
+  - 도메인 or IP:Port
+  - 도메인 or IP:Port,Port
+---
