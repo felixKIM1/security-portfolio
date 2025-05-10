@@ -1,1 +1,6 @@
-
+API_KEY_URL: 'https://VPN_ip/api/v1/realm_auth'
+BASIC_KEY_URL: 'https://VPN_ip/api/v1/configuration'
+ACL_KEY_URL: 'https://VPN_ip/api/v1/configuration/users/resource-policies/network-connect-policies/network-connect-acls/network-connect-acl'
+SP_KEY_URL: 'https://VPN_ip/api/v1/configuration/users/resource-policies/network-connect-policies/network-connect-split-tunneling-networks/network-connect-split-tunneling-network'
+USER_NAME: 'Username'
+USER_PASSWD: 'Password'
