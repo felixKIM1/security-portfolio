@@ -7,7 +7,7 @@
 
 | 폴더 | 설명 |
 |------|------|
-| `---` | --- |
+| `01_network-issues` | 실무 네트워크 문제 해결 사례 |
 | `02_cloud-security/` | AWS, EKS, 멀티 클라우드 보안 실습 |
 | `03_security-tools/` | VPN, SIEM 등 보안 도구 문제해결 및 분석 |
 | `04_automation-scripts/` | 보안 자동화를 위한 스크립트 모음 |
