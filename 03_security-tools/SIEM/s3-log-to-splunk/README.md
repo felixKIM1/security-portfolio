@@ -25,3 +25,5 @@ Elasticsearch에 적재한 후, Splunk의 collect 기능을 통해 인덱싱하�
 | **Elasticsearch** | 로그 저장 및 검색용 데이터베이스 |
 | **Splunk (collect)** | Elasticsearch 데이터를 수집해 인덱싱 |
 | **Splunk Dashboard** | 수집된 데이터를 기반으로 이벤트 시각화 구성 |
+
+#파일 설명
