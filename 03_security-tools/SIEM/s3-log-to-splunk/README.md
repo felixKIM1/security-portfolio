@@ -26,4 +26,30 @@ Elasticsearch에 적재한 후, Splunk의 collect 기능을 통해 인덱싱하�
 | **Splunk (collect)** | Elasticsearch 데이터를 수집해 인덱싱 |
 | **Splunk Dashboard** | 수집된 데이터를 기반으로 이벤트 시각화 구성 |
 
-#파일 설명
+## 📁 파일 및 주요 설정 설명
+
+### 🔧 Logstash
+
+**`cf.conf`** – S3 로그 수집용 Logstash 파이프라인 설정
+
+| 설정 항목 | 설명 |
+|-----------|------|
+| `proxy_uri` | S3 접근 시 사용하는 프록시 서버 주소 (내부망 환경에서 외부 통신용) |
+| `sincedb_path` | 마지막 수집 지점 정보를 저장하는 로컬 경로 (재시작 시 이어서 수집 가능) |
+| `interval` | S3 수집 주기 (초 단위, 기본: 60초) |
+
+---
+
+### 🗂️ Elasticsearch
+
+- 수집된 로그가 저장되는 NoSQL 기반 데이터 저장소
+- 인덱스 명: `security_cflog-%{+YYYY.MM}`
+- 로그 탐색 및 연동 대상
+
+---
+
+### 📊 Splunk
+
+- Elasticsearch 데이터를 **collect input** 기능으로 가져와 분석/시각화
+- 인덱스에 저장 후, Dashboard를 통해 시각화 구성
+  - 예: Source IP Top 10, 요청 경로 분포, 응답 코드 등
