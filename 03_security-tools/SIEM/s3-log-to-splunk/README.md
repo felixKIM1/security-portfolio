@@ -69,16 +69,16 @@ Elasticsearch에 적재한 후, Splunk의 collect 기능을 통해 인덱싱하�
 - Elasticsearch에 직접 `_search` 요청 후 결과를 Splunk에 `_raw` 형태로 인덱싱
 - 시간 필터, 쿼리, 인덱스 지정 가능
 
-```spl
-| generateelk index="security_cflog-*" query="status:403" size=100
-✅ collect_cloudfront_logs.spl
+
+
+#### ✅ collect_cloudfront_logs.spl
 정적 자원 제외 필터링
 
 중요한 필드(ip, uri, status, 등)만 추출
 
 collect 명령어로 sec_cf_log 인덱스에 저장
 
-✅ Dashboard
+#### ✅ Dashboard
 특정 시간 내 IP 요청량 이상 감지
 
 index=sec_cf_log
