@@ -1,0 +1,7 @@
+#예시
+index=sec_cf_log
+| bin _time span=10m
+| stats count by _time, ip
+| where count >= 100
+| timechart span=10m sum(count) by ip
+---
