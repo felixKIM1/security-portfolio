@@ -1,0 +1,16 @@
+| elasticsearch index="security_cflog_*" OR query="*" size=200000
+| eval _time=relative_time(strptime('@timestamp',"%Y-%m-%dT%H:%M:%S.%fZ"), "+9h") 
+| spath input=message path=cs-method 
+| spath input=message path=c-ip 
+| spath input=message path=cs(Host) 
+| spath input=message path=cs(Referer) 
+| spath input=message path=cs(User-Agent) 
+| spath input=message path=cs-uri-stem 
+| spath input=message path=c-port 
+| spath input=message path=sc-status
+| spath input=message path=x-host-header
+| spath input=message path=x-forwarded-for
+| rename "cs(User-Agent)" as ua "cs(Referer)" as referer "cs-uri-stem" as uri "c-ip" as ip "cs-method" as method "cs(Host)" as cf_host "sc-status" as response "x-host-header" as hostname "x-forwarded-for" as xff
+| search uri!="*.mp4" AND uri !="*.js" AND uri !="*.mp3" AND uri !="*.css" AND uri !="*.ttf" AND uri !="*.png" AND uri !="*.jpg" AND uri !="*.gif" AND uri !="*.woff"  AND uri !="*.woff2" AND uri !="*.otf" AND uri !="*.svg" AND uri !="*.ico" 
+| table _time ip xff method uri hostname ua referer response cf_host message
+| collect index=sec_cf_log source="cloudfront_log"
