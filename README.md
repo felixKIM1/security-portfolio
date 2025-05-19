@@ -12,7 +12,6 @@
 | `03_security-tools/` | VPN, SIEM 등 보안 도구 문제해결 및 분석 |
 | `04_automation-scripts/` | 보안 자동화를 위한 스크립트 모음 |
 | `05_certification-notes/` | 정보보안기사 등 자격증 준비 자료 |
-| `06_projects/` | 통합 보안 프로젝트 사례 |
 
 ## 📧 Contact
 
