@@ -9,19 +9,8 @@ Elasticsearch에 적재한 후, Splunk의 collect 기능을 통해 인덱싱하�
 
 ## 🔧 구성 아키텍처
 
-[S3]
-↓
-[Logstash]
-↓
-[Elasticsearch]
-↓
-[Splunk generateelk.py → collect]
-↓
-[Splunk Index + Dashboard]
+<pre> ``` [S3] ↓ [Logstash] ↓ [Elasticsearch] ↓ [Splunk generateelk.py → collect] ↓ [Splunk Index + Dashboard] ``` </pre>
 
-yaml
-복사
-편집
 
 ### 주요 목적
 
@@ -81,9 +70,6 @@ collect 명령어로 sec_cf_log 인덱스에 저장
 ✅ Dashboard
 특정 시간 내 IP 요청량 이상 감지
 
-spl
-복사
-편집
 index=sec_cf_log
 | bin _time span=10m
 | stats count by _time, ip
