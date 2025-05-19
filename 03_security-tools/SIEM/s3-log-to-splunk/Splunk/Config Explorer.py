@@ -78,3 +78,26 @@ if __name__ == "__main__":
 
 # 🛠 사용 예시 (Splunk 검색창에서):
 # | generateelk index="security_cflog-*" query="status:403" size="100"
+
+# """
+#         ▼ ① 사용자가 Splunk에서 명령어 입력
+# | elasticsearch index="..." query="..." size=...
+
+#         ▼ ② Splunk 커스텀 명령어 시스템 실행
+# Splunk가 elasticsearch.py 내부의 generate() 함수 호출
+
+#         ▼ ③ generate() 함수 내부 로직
+# → REST API 요청 URL 생성
+# → Elasticsearch에 HTTP 요청
+# → JSON 결과 수신
+# → _source 데이터 가공
+# → _raw, _time, ip 등 필드 추출 및 생성
+# → yield row (Splunk에 이벤트처럼 반환)
+
+#         ▼ ④ Splunk는 이 반환값들을 이벤트처럼 처리
+# → 다음 파이프라인으로 전달
+
+#         ▼ ⑤ 이후 파이프라인: spath, eval, search, table, collect 등 실행
+
+#         ▼ ⑥ collect 명령어 실행
+# → Splunk가 이 이벤트들을 지정한 인덱스(sec_cf_log)에 저장
