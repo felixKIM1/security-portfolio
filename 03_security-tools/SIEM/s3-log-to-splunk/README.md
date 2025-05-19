@@ -9,7 +9,18 @@ Elasticsearch에 적재한 후, Splunk의 collect 기능을 통해 인덱싱하�
 
 ## 🔧 구성 아키텍처
 
-<pre> ``` [S3] ↓ [Logstash] ↓ [Elasticsearch] ↓ [Splunk generateelk.py → collect] ↓ [Splunk Index + Dashboard] ``` </pre>
+```
+[S3]  
+  ↓  
+[Logstash]  
+  ↓  
+[Elasticsearch]  
+  ↓  
+[Splunk generateelk.py → collect]  
+  ↓  
+[Splunk Index + Dashboard]
+```
+
 
 
 ### 주요 목적
