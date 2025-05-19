@@ -33,7 +33,7 @@ class GenerateELKCommand(GeneratingCommand):
             url='http://ES_IP:9200/'+ self.index + '/_search?q=' + str(self.query) + ' AND @timestamp:[' + str(search_et) + ' TO ' + str(search_lt) + ']&sort=@timestamp:desc&size=' + str(self.size)
         
         headers = {
-            'Authorization': 'Basic ZWxhc3RpYzppbmZyYXNlYzEh',
+            'Authorization': 'Basic awefFEWFdsfaWEFFFhgyfdREW',
             'Content-type': 'application/json'
             }
         
