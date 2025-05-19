@@ -1,0 +1,8 @@
+| elasticsearch index="sslvpn*" query="AUT32033" size=100000
+| eval last_access = strptime(log_time, "%Y-%m-%d %H:%M:%S")
+| stats max(last_access) as last_log_time, values(realm) as realm by user_ldap
+| where last_log_time <= relative_time(now(), "-90d") AND last_log_time >= relative_time(now(), "-120d")
+| eval last_log_date = strftime(last_log_time, "%Y-%m-%d")
+| eval days_ago = floor((now() - last_log_time)/86400)
+| eval last_login = days_ago . "일 전"
+| table user_ldap realm last_login
